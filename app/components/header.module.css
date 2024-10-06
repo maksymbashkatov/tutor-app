@@ -1,0 +1,27 @@
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.userSection {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  justify-self: end;
+  align-items: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}

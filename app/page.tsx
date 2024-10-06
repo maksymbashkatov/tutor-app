@@ -1,15 +1,8 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-
-export default function Home() {
+export default function Page() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        Main page
-      </main>
-      <footer className={styles.footer}>
-        Footer
-      </footer>
+    <div>
+      <h1>Добро пожаловать в Tutor-App!</h1>
+      <p>Платформа для поиска репетиторов и учеников.</p>
     </div>
   );
 }
