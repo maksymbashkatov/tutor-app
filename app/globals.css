@@ -5,11 +5,14 @@ html, body {
   color: #5C7D85;
 }
 
-body {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-}
-
 main {
   padding: 20px;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  max-width: 1366px;
+  margin: 0 auto;
+  min-height: 100vh;
 }
