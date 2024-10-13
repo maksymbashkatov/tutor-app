@@ -1,0 +1,32 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 400px;
+  margin: 0 auto;
+  gap: 10px;
+}
+
+.title {
+  justify-self: center;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  outline: 1px solid black;
+}
+
+.button {
+  background-color: #183E47;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #1a3b3d;
+}

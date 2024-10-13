@@ -1,8 +1,18 @@
 html, body {
   height: 100%;
   margin: 0;
+  padding: 0;
   background-color: #294A52;
   color: #5C7D85;
+}
+
+h1, p, input {
+  margin: 0;
+  padding: 0;
+}
+
+input, button {
+  border: none;
 }
 
 main {
