@@ -1,5 +1,9 @@
 import { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import { PrismaClient } from '@prisma/client';
+import bcrypt from 'bcrypt';
+
+const prisma = new PrismaClient();
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -10,11 +14,14 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
-        // Здесь будет логика для проверки пользователя
-        const user = { id: '1', name: 'John', email: 'johnwinch@gmail.com' };
+        // Проверка пользователя в базе данных
+        const user = await prisma.user.findUnique({
+          where: { email: credentials?.email }
+        });
 
-        if (user) {
-          return user;
+        // Если пользователь найден и пароли совпадают
+        if (user && await bcrypt.compare(credentials?.password || '', user.password)) {
+          return { id: user.id.toString(), email: user.email };
         } else {
           return null;
         }

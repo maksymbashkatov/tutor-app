@@ -30,3 +30,26 @@
 .button:hover {
   background-color: #1a3b3d;
 }
+
+/* Стили для выбора кто ты */
+.roleSelection {
+  display: grid;
+  grid-template-columns: 1fr;
+  text-align: center;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  display: grid;
+  gap: 10px;
+  border: 1px solid #5C7D85;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}

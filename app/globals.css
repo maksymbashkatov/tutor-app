@@ -6,17 +6,13 @@ html, body {
   color: #5C7D85;
 }
 
-h1, p, input {
+h1, h2, p, input, main, footer {
   margin: 0;
   padding: 0;
 }
 
 input, button {
   border: none;
-}
-
-main {
-  padding: 20px;
 }
 
 .container {
