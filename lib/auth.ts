@@ -21,7 +21,12 @@ export const authOptions: NextAuthOptions = {
 
         // Если пользователь найден и пароли совпадают
         if (user && await bcrypt.compare(credentials?.password || '', user.password)) {
-          return { id: user.id.toString(), email: user.email };
+          return {
+            id: user.id.toString(),
+            email: user.email,
+            name: user.name,
+            surname: user.surname,
+          };
         } else {
           return null;
         }
@@ -32,6 +37,5 @@ export const authOptions: NextAuthOptions = {
     signIn: '/login',
     signOut: '/logout',
     error: '/auth/error',
-    verifyRequest: '/auth/verify-request',
   }
 };
