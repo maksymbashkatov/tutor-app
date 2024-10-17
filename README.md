@@ -7,6 +7,6 @@ JavaScript/TypeScript
 Next.js is used for both the frontend and backend of the project, as it includes  
 - React for building user interfaces
 and
-- Node.js for handling server-side logic
+- Node.js for handling server-side logic  
 PostgreSQL  
 Prisma ORM  
