@@ -14,18 +14,17 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
-        // Проверка пользователя в базе данных
         const user = await prisma.user.findUnique({
           where: { email: credentials?.email }
         });
-
-        // Если пользователь найден и пароли совпадают
+        
         if (user && await bcrypt.compare(credentials?.password || '', user.password)) {
           return {
             id: user.id.toString(),
             email: user.email,
-            name: user.name,
-            surname: user.surname,
+            role: user.role,
+            name: user.name || '',
+            surname: user.surname || '',
           };
         } else {
           return null;
@@ -33,6 +32,22 @@ export const authOptions: NextAuthOptions = {
       }
     })
   ],
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.role = user.role;
+        token.name = user.name;
+        token.surname = user.surname;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      session.user.role = token.role as string;
+      session.user.name = token.name || '';
+      session.user.surname = token.surname as string || '';
+      return session;
+    }
+  },
   pages: {
     signIn: '/login',
     signOut: '/logout',

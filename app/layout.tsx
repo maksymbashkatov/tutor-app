@@ -1,6 +1,5 @@
 import './globals.css';
-import Header from './components/header';
-import Footer from './components/footer';
+import MainContainer from './components/mainContainer';
 
 export const metadata = {
   title: 'Tutor-App',
@@ -13,13 +12,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru">
+    <html lang='ru'>
       <body>
-        <div className="container">
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </div>
+        <MainContainer children={children} />
       </body>
     </html>
   );
